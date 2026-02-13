@@ -1,9 +1,18 @@
-import { motion } from 'motion/react';
-import { Check, ArrowLeft, Sparkles, Crown, Bell, Users, Share2, Copy } from 'lucide-react';
-import { useActivitySync } from '../hooks/useActivitySync';
-import { useState } from 'react';
-import { ReferralSection } from './ReferralSection';
-import { CounterSkeleton } from './Skeleton';
+import { motion } from "motion/react";
+import {
+  Check,
+  ArrowLeft,
+  Sparkles,
+  Crown,
+  Bell,
+  Users,
+  Share2,
+  Copy,
+} from "lucide-react";
+import { useActivitySync } from "../hooks/useActivitySync";
+import { useState } from "react";
+import { ReferralSection } from "./ReferralSection";
+import { CounterSkeleton } from "./Skeleton";
 
 interface SuccessStateProps {
   onReset: () => void;
@@ -12,8 +21,13 @@ interface SuccessStateProps {
   referralCode: string;
 }
 
-export function SuccessState({ onReset, userName, userEmail, referralCode }: SuccessStateProps) {
-  const firstName = userName.split(' ')[0];
+export function SuccessState({
+  onReset,
+  userName,
+  userEmail,
+  referralCode,
+}: SuccessStateProps) {
+  const firstName = userName.split(" ")[0];
   const { signupCount } = useActivitySync();
   const [copied, setCopied] = useState(false);
 
@@ -28,12 +42,12 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
 
   const handleWhatsAppShare = () => {
     const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, "_blank");
   };
 
   const handleTwitterShare = () => {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-    window.open(twitterUrl, '_blank');
+    window.open(twitterUrl, "_blank");
   };
 
   return (
@@ -70,28 +84,28 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
 
       {/* Grid pattern overlay - same as homepage */}
       <div className="absolute inset-0 pointer-events-none">
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.02] sm:opacity-[0.03]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(0, 214, 143, 0.5) 1px, transparent 1px),
               linear-gradient(90deg, rgba(0, 214, 143, 0.5) 1px, transparent 1px)
             `,
-            backgroundSize: '60px 60px',
-            maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)',
+            backgroundSize: "60px 60px",
+            maskImage:
+              "radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%)",
           }}
         />
       </div>
 
       <div className="relative z-10 w-full max-w-lg mx-auto">
         <div className="space-y-6 sm:space-y-8">
-          
           {/* Success Checkmark Badge - Compact */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ 
-              duration: 0.5, 
+            transition={{
+              duration: 0.5,
               type: "spring",
               bounce: 0.6,
             }}
@@ -110,7 +124,7 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
                   repeat: Infinity,
                 }}
               />
-              
+
               {/* Checkmark circle */}
               <div className="relative w-16 h-16 bg-gradient-to-br from-[#00B67A] to-[#00D68F] rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,182,122,0.5)]">
                 <Check className="w-8 h-8 text-white" strokeWidth={3} />
@@ -162,7 +176,7 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
             <div className="relative bg-gradient-to-br from-[#151515] to-[#0E0E0E] backdrop-blur-xl border-2 border-[#2A2A2A] rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_0_60px_rgba(0,182,122,0.15)]">
               {/* Glow effect - same as form */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00B67A]/20 to-[#00D68F]/20 rounded-2xl sm:rounded-3xl blur opacity-30 -z-10" />
-              
+
               {/* Header */}
               <div className="text-center mb-5 sm:mb-6">
                 <div className="inline-block px-4 py-1.5 bg-[#00B67A]/10 border border-[#00B67A]/30 rounded-full mb-3">
@@ -181,10 +195,26 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
               {/* Benefits Grid - Compact 2x2 */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5 sm:mb-6">
                 {[
-                  { icon: Crown, text: 'VIP Access First', highlight: 'Launch day priority' },
-                  { icon: Sparkles, text: 'Beta Features', highlight: 'Test AI tools early' },
-                  { icon: Bell, text: 'Priority Support', highlight: 'Instant assistance' },
-                  { icon: Users, text: 'Exclusive Community', highlight: 'Founder access' },
+                  {
+                    icon: Crown,
+                    text: "VIP Access First",
+                    highlight: "Launch day priority",
+                  },
+                  {
+                    icon: Sparkles,
+                    text: "Beta Features",
+                    highlight: "Test AI tools early",
+                  },
+                  {
+                    icon: Bell,
+                    text: "Priority Support",
+                    highlight: "Instant assistance",
+                  },
+                  {
+                    icon: Users,
+                    text: "Exclusive Community",
+                    highlight: "Founder access",
+                  },
                 ].map((benefit, i) => {
                   const Icon = benefit.icon;
                   return (
@@ -196,7 +226,10 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
                       className="flex items-start gap-3 p-3 sm:p-4 bg-[#0E0E0E] border border-[#2A2A2A] rounded-xl"
                     >
                       <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-[#00B67A] to-[#00D68F] rounded-lg flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-white" strokeWidth={2.5} />
+                        <Icon
+                          className="w-4 h-4 text-white"
+                          strokeWidth={2.5}
+                        />
                       </div>
                       <div className="flex-1 text-left">
                         <p className="text-white font-semibold text-xs sm:text-sm leading-tight">
@@ -219,18 +252,18 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
                 <p className="text-xs text-[#6B7C76] uppercase tracking-wider font-semibold text-center">
                   What Happens Next
                 </p>
-                
+
                 <div className="space-y-2.5">
                   {[
-                    { 
-                      number: '1',
-                      title: 'Check Your Email',
-                      desc: 'Confirmation sent with exclusive details'
+                    {
+                      number: "1",
+                      title: "Check Your Email",
+                      desc: "Confirmation sent with exclusive details",
                     },
-                    { 
-                      number: '2',
-                      title: 'Get Launch Notification',
-                      desc: 'VIP access before public release'
+                    {
+                      number: "2",
+                      title: "Get Launch Notification",
+                      desc: "VIP access before public release",
                     },
                   ].map((step, i) => (
                     <motion.div
@@ -241,7 +274,9 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
                       className="flex items-start gap-3 p-3 sm:p-4 bg-[#0E0E0E] border border-[#2A2A2A] rounded-xl"
                     >
                       <div className="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-[#00B67A] to-[#00D68F] rounded-lg flex items-center justify-center">
-                        <span className="text-white font-bold text-xs">{step.number}</span>
+                        <span className="text-white font-bold text-xs">
+                          {step.number}
+                        </span>
                       </div>
                       <div className="flex-1 text-left">
                         <h4 className="text-white font-semibold text-xs sm:text-sm">
@@ -266,7 +301,10 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
             className="text-center"
           >
             <p className="text-xs sm:text-sm text-[#6B7C76] mb-3">
-              <span className="text-[#00D68F] font-semibold">Limited spots.</span> Share with friends before it's too late!
+              <span className="text-[#00D68F] font-semibold">
+                Limited spots.
+              </span>{" "}
+              Share with friends before it's too late!
             </p>
           </motion.div>
 
@@ -280,7 +318,7 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
             <div className="relative bg-gradient-to-br from-[#151515] to-[#0E0E0E] backdrop-blur-xl border-2 border-[#2A2A2A] rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_0_60px_rgba(0,182,122,0.15)]">
               {/* Glow effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00B67A]/20 to-[#00D68F]/20 rounded-2xl sm:rounded-3xl blur opacity-30 -z-10" />
-              
+
               {/* Video Header */}
               <div className="text-center mb-3 sm:mb-4">
                 <p className="text-xs text-[#6B7C76] uppercase tracking-wider font-semibold mb-1">
@@ -292,21 +330,24 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
               </div>
 
               {/* YouTube Embed */}
-              <div className="relative w-full overflow-hidden rounded-xl" style={{ paddingBottom: '56.25%' }}>
+              <div
+                className="relative w-full overflow-hidden rounded-xl"
+                style={{ paddingBottom: "56.25%" }}
+              >
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
                   src="https://www.youtube.com/embed/b1EgmaiqVDU"
                   title="TyrooAI Demo"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  style={{ border: 'none' }}
+                  style={{ border: "none" }}
                 />
               </div>
             </div>
           </motion.div>
 
           {/* Referral Program Section */}
-          <ReferralSection referralCode={referralCode} userEmail={userEmail} />
+          {/* <ReferralSection referralCode={referralCode} userEmail={userEmail} /> */}
 
           {/* Share Buttons */}
           <motion.div
@@ -331,7 +372,7 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
                 </>
               )}
             </button>
-            
+
             <button
               onClick={handleWhatsAppShare}
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0E0E0E] border border-[#2A2A2A] rounded-xl text-[#A8C5BA] hover:text-[#00D68F] hover:border-[#00B67A] transition-all text-xs sm:text-sm font-medium"
@@ -339,7 +380,7 @@ export function SuccessState({ onReset, userName, userEmail, referralCode }: Suc
               <Share2 className="w-4 h-4" />
               <span>WhatsApp</span>
             </button>
-            
+
             <button
               onClick={handleTwitterShare}
               className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#0E0E0E] border border-[#2A2A2A] rounded-xl text-[#A8C5BA] hover:text-[#00D68F] hover:border-[#00B67A] transition-all text-xs sm:text-sm font-medium"
