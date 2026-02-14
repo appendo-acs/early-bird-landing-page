@@ -1,29 +1,32 @@
-import { motion } from 'motion/react';
-import { Play, Video, Sparkles } from 'lucide-react';
-import { useState } from 'react';
-import { FeaturePopup } from './FeaturePopup';
+import { motion } from "motion/react";
+import { Play, Video, Sparkles } from "lucide-react";
+import { useState } from "react";
+import { FeaturePopup } from "./FeaturePopup";
 
 const featureDetails = [
   {
-    icon: '🎤',
-    label: 'AI Interview',
-    title: 'AI Mock Interviews',
-    description: 'Practice unlimited mock interviews with our advanced AI interviewer. Get instant, personalized feedback to ace every question with confidence.',
-    benefit: '3 Free Mock Interview Sessions (Worth ₹999)',
+    icon: "🎤",
+    label: "AI Interview",
+    title: "AI Mock Interviews",
+    description:
+      "Practice unlimited mock interviews with our advanced AI interviewer. Get instant, personalized feedback to ace every question with confidence.",
+    benefit: "3 Free Mock Interview Sessions (Worth ₹999)",
   },
   {
-    icon: '📄',
-    label: 'Resume AI',
-    title: 'AI Resume Intelligence',
-    description: 'Create ATS-optimized, professional resumes in minutes. Get comprehensive AI-powered analysis with actionable insights and keyword optimization.',
-    benefit: '1 Free Resume Build + Unlimited Analysis (Worth ₹1,298)',
+    icon: "📄",
+    label: "Resume AI",
+    title: "AI Resume Intelligence",
+    description:
+      "Create ATS-optimized, professional resumes in minutes. Get comprehensive AI-powered analysis with actionable insights and keyword optimization.",
+    benefit: "1 Free Resume Build + Unlimited Analysis (Worth ₹1,298)",
   },
   {
-    icon: '💰',
-    label: 'Salary Tools',
-    title: 'Salary Negotiation Toolkit',
-    description: 'Access proven scripts, data-driven insights, and expert strategies to negotiate confidently and maximize your job offers like never before.',
-    benefit: 'Full Access to Negotiation Kit (Worth ₹699)',
+    icon: "💰",
+    label: "Salary Tools",
+    title: "Salary Negotiation Toolkit",
+    description:
+      "Access proven scripts, data-driven insights, and expert strategies to negotiate confidently and maximize your job offers like never before.",
+    benefit: "Full Access to Negotiation Kit (Worth ₹699)",
   },
 ];
 
@@ -64,7 +67,8 @@ export function DemoVideo() {
             See <span className="text-[#00D68F]">TyrooAI</span> in Action
           </h2>
           <p className="text-sm sm:text-base text-[#A8C5BA] max-w-2xl mx-auto">
-            Watch how our AI-powered platform transforms your career preparation journey
+            Watch how our AI-powered platform transforms your career preparation
+            journey
           </p>
         </motion.div>
 
@@ -77,21 +81,21 @@ export function DemoVideo() {
         >
           {/* Glow effect */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00B67A]/30 to-[#00D68F]/30 rounded-3xl blur-2xl opacity-50" />
-          
+
           <div className="relative bg-gradient-to-br from-[#151515]/90 to-[#0E0E0E]/90 backdrop-blur-xl border-2 border-[#00B67A]/40 rounded-3xl overflow-hidden">
             {/* Video Container */}
             <div className="relative aspect-video bg-gradient-to-br from-[#0E0E0E] to-[#1A1A1A] overflow-hidden">
               {!isPlaying ? (
                 <>
                   {/* Background Pattern */}
-                  <div 
+                  <div
                     className="absolute inset-0 opacity-5"
                     style={{
                       backgroundImage: `
                         linear-gradient(rgba(0, 214, 143, 0.5) 1px, transparent 1px),
                         linear-gradient(90deg, rgba(0, 214, 143, 0.5) 1px, transparent 1px)
                       `,
-                      backgroundSize: '40px 40px',
+                      backgroundSize: "40px 40px",
                     }}
                   />
 
@@ -131,10 +135,13 @@ export function DemoVideo() {
                     >
                       {/* Play Button Glow */}
                       <div className="absolute -inset-2 bg-gradient-to-r from-[#00B67A] to-[#00D68F] rounded-full blur-xl opacity-60 group-hover/play:opacity-100 transition-opacity duration-300" />
-                      
+
                       {/* Play Button */}
                       <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#00B67A] to-[#00D68F] rounded-full flex items-center justify-center shadow-2xl ring-4 ring-[#00B67A]/20">
-                        <Play className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white ml-1" fill="white" />
+                        <Play
+                          className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white ml-1"
+                          fill="white"
+                        />
                       </div>
 
                       {/* Pulsing Ring */}
@@ -164,12 +171,14 @@ export function DemoVideo() {
                 /* YouTube Embed */
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/b1EgmaiqVDU?autoplay=1"
+                  src="https://www.youtube.com/embed/f8uiI84Xgkk?si=NiZTTW1XuqIc5nTy"
                   title="TyrooAI Demo"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ border: 'none' }}
-                />
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  style={{ border: "none" }}
+                ></iframe>
               )}
             </div>
 
@@ -188,9 +197,9 @@ export function DemoVideo() {
                 <div className="flex items-center gap-3 sm:gap-4">
                   {/* Feature Highlights */}
                   {[
-                    { icon: '🎤', label: 'AI Interview' },
-                    { icon: '📄', label: 'Resume AI' },
-                    { icon: '💰', label: 'Salary Tools' },
+                    { icon: "🎤", label: "AI Interview" },
+                    { icon: "📄", label: "Resume AI" },
+                    { icon: "💰", label: "Salary Tools" },
                   ].map((item, i) => (
                     <motion.button
                       key={i}
@@ -227,7 +236,7 @@ export function DemoVideo() {
             Ready to transform your career preparation?
           </p>
           <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-[#00B67A] to-[#00D68F] hover:from-[#00D68F] hover:to-[#00B67A] text-white rounded-xl font-semibold text-sm sm:text-base transition-all duration-300 shadow-lg hover:shadow-[0_0_40px_rgba(0,182,122,0.5)] active:scale-[0.98]"
           >
             <Sparkles className="w-4 h-4" />
