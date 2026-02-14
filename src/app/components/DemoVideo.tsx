@@ -87,19 +87,17 @@ export function DemoVideo() {
             <div className="relative aspect-video bg-gradient-to-br from-[#0E0E0E] to-[#1A1A1A] overflow-hidden">
               {!isPlaying ? (
                 <>
-                  {/* Background Pattern */}
-                  <div
-                    className="absolute inset-0 opacity-5"
-                    style={{
-                      backgroundImage: `
-                        linear-gradient(rgba(0, 214, 143, 0.5) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0, 214, 143, 0.5) 1px, transparent 1px)
-                      `,
-                      backgroundSize: "40px 40px",
-                    }}
+                  {/* YouTube Thumbnail Background */}
+                  <img
+                    src="https://img.youtube.com/vi/f8uiI84Xgkk/maxresdefault.jpg"
+                    alt="TyrooAI Demo Thumbnail"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
 
-                  {/* Animated Glow Orbs */}
+                  {/* Dark Overlay (keeps glow + readability) */}
+                  <div className="absolute inset-0 bg-black/40" />
+
+                  {/* Animated Glow Orbs (UNCHANGED) */}
                   <motion.div
                     className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#00B67A]/20 rounded-full blur-[100px]"
                     animate={{
@@ -125,7 +123,7 @@ export function DemoVideo() {
                     }}
                   />
 
-                  {/* Play Button */}
+                  {/* Play Button (UNCHANGED) */}
                   <div className="absolute inset-0 flex items-center justify-center z-10">
                     <motion.button
                       onClick={handlePlayClick}
@@ -160,7 +158,7 @@ export function DemoVideo() {
                     </motion.button>
                   </div>
 
-                  {/* Preview Badge */}
+                  {/* Preview Badge (UNCHANGED) */}
                   <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#00B67A]/90 backdrop-blur-sm border border-[#00D68F]/50 shadow-lg z-20">
                     <span className="text-xs font-bold text-white uppercase tracking-wide">
                       Preview
@@ -168,17 +166,16 @@ export function DemoVideo() {
                   </div>
                 </>
               ) : (
-                /* YouTube Embed */
                 <iframe
                   className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/f8uiI84Xgkk?si=NiZTTW1XuqIc5nTy"
+                  src="https://www.youtube.com/embed/f8uiI84Xgkk?autoplay=1&rel=0"
                   title="TyrooAI Demo"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
                   style={{ border: "none" }}
-                ></iframe>
+                />
               )}
             </div>
 
@@ -256,3 +253,101 @@ export function DemoVideo() {
     </section>
   );
 }
+
+// <div className="relative aspect-video bg-gradient-to-br from-[#0E0E0E] to-[#1A1A1A] overflow-hidden">
+//   {!isPlaying ? (
+//     <>
+//       {/* Background Pattern */}
+//       <div
+//         className="absolute inset-0 opacity-5"
+//         style={{
+//           backgroundImage: `
+//                     linear-gradient(rgba(0, 214, 143, 0.5) 1px, transparent 1px),
+//                     linear-gradient(90deg, rgba(0, 214, 143, 0.5) 1px, transparent 1px)
+//                   `,
+//           backgroundSize: "40px 40px",
+//         }}
+//       />
+
+//       {/* Animated Glow Orbs */}
+//       <motion.div
+//         className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#00B67A]/20 rounded-full blur-[100px]"
+//         animate={{
+//           scale: [1, 1.2, 1],
+//           opacity: [0.3, 0.5, 0.3],
+//         }}
+//         transition={{
+//           duration: 4,
+//           repeat: Infinity,
+//           ease: "easeInOut",
+//         }}
+//       />
+//       <motion.div
+//         className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[#00D68F]/20 rounded-full blur-[100px]"
+//         animate={{
+//           scale: [1.2, 1, 1.2],
+//           opacity: [0.5, 0.3, 0.5],
+//         }}
+//         transition={{
+//           duration: 4,
+//           repeat: Infinity,
+//           ease: "easeInOut",
+//         }}
+//       />
+
+//       {/* Play Button */}
+//       <div className="absolute inset-0 flex items-center justify-center z-10">
+//         <motion.button
+//           onClick={handlePlayClick}
+//           whileHover={{ scale: 1.1 }}
+//           whileTap={{ scale: 0.95 }}
+//           className="relative group/play"
+//         >
+//           {/* Play Button Glow */}
+//           <div className="absolute -inset-2 bg-gradient-to-r from-[#00B67A] to-[#00D68F] rounded-full blur-xl opacity-60 group-hover/play:opacity-100 transition-opacity duration-300" />
+
+//           {/* Play Button */}
+//           <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-gradient-to-br from-[#00B67A] to-[#00D68F] rounded-full flex items-center justify-center shadow-2xl ring-4 ring-[#00B67A]/20">
+//             <Play
+//               className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white ml-1"
+//               fill="white"
+//             />
+//           </div>
+
+//           {/* Pulsing Ring */}
+//           <motion.div
+//             className="absolute inset-0 border-4 border-[#00D68F] rounded-full"
+//             animate={{
+//               scale: [1, 1.3, 1],
+//               opacity: [0.5, 0, 0.5],
+//             }}
+//             transition={{
+//               duration: 2,
+//               repeat: Infinity,
+//               ease: "easeOut",
+//             }}
+//           />
+//         </motion.button>
+//       </div>
+
+//       {/* Preview Badge */}
+//       <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#00B67A]/90 backdrop-blur-sm border border-[#00D68F]/50 shadow-lg z-20">
+//         <span className="text-xs font-bold text-white uppercase tracking-wide">
+//           Preview
+//         </span>
+//       </div>
+//     </>
+//   ) : (
+//     /* YouTube Embed */
+//     <iframe
+//       className="absolute top-0 left-0 w-full h-full"
+//       src="https://www.youtube.com/embed/f8uiI84Xgkk?si=NiZTTW1XuqIc5nTy"
+//       title="TyrooAI Demo"
+//       frameborder="0"
+//       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+//       referrerpolicy="strict-origin-when-cross-origin"
+//       allowfullscreen
+//       style={{ border: "none" }}
+//     ></iframe>
+//   )}
+// </div>;
